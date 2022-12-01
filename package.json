@@ -1,16 +1,22 @@
 {
-  "name": "express-local-library-api",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1"
-  }
+    "name": "mongodb-express-rest-api",
+    "version": "1.0.0",
+    "description": "Sample project for the article on MongoDB and Express.js web REST API tutorial",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mongodb-developer/mongodb-express-rest-api-example.git"
+    },
+    "keywords": [
+        "mongodb",
+        "node",
+        "express",
+        "atlas",
+        "react"
+    ],
+    "author": "Pavel Duchovny",
+    "license": "Apache 2.0",
+    "bugs": {
+        "url": "https://github.com/mongodb-developer/mongodb-express-rest-api-example/issues"
+    },
+    "homepage": "https://github.com/mongodb-developer/mongodb-express-rest-api-example#readme"
 }
