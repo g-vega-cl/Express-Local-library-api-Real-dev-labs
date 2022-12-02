@@ -11,7 +11,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(require('./routes/record'));
 app.use(require('./routes/fetchBooks'));
 app.use(require('./routes/home'));
 app.use(require('./routes/users'));
