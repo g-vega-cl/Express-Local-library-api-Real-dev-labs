@@ -43,7 +43,12 @@ userRoutes.route('/users/books').get(async (req, res) => {
     const bookId = Number(user.reservedBooks[i]); //Making sure we have number returned. //Could be redundant.
     const book = await dbConnect.collection('books').findOne({ id: bookId });
 
-    bookIdAndTitleArray.push({ bookId: book.id, bookName: book.title });
+    bookIdAndTitleArray.push({
+      bookId: book.id,
+      bookName: book.title,
+      author: book.firstAuthor,
+      available: book.available,
+    }); // I could just push the book itself...
   }
 
   res.status(200).send(bookIdAndTitleArray);
@@ -101,24 +106,22 @@ userRoutes.route('/users/reservation').post(async (req, res) => {
     return;
   } else {
     // COULD REMOVE WITH RETURN???, BUT NEEDS TESTING.
-    dbConnect
-      .collection('users')
-      .findOneAndUpdate(
-        { username: username },
-        {
-          $set: {
-            reservedBooks: [...existingUser.reservedBooks, bookIdNumber],
-          },
+    dbConnect.collection('users').findOneAndUpdate(
+      { username: username },
+      {
+        $set: {
+          reservedBooks: [...existingUser.reservedBooks, bookIdNumber],
         },
-        { upsert: true },
-        (err, _) => {
-          if (err) {
-            res.status(400).send('Error inserting username!');
-          } else {
-            return updateBookAvailability(dbConnect, bookIdNumber, res);
-          }
+      },
+      { upsert: true },
+      (err, _) => {
+        if (err) {
+          res.status(400).send('Error inserting username!');
+        } else {
+          return updateBookAvailability(dbConnect, bookIdNumber, res);
         }
-      );
+      }
+    );
   }
 });
 

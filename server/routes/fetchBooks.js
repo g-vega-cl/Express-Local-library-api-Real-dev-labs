@@ -3,26 +3,19 @@ var dbo = require('../db/conn');
 var axios = require('axios');
 var fetchBooksRoutes = express.Router();
 
-// Interfaces if we were using typescript
-// interface IGutenmbergAuthor {
-//     name: string;
-//     birth_year: number;
-//     death_year: any; // figure out what happens if author is still alive.
-//   }
-
-//   interface IGutenbergBook {
-//     "id": number;
-//     "title": string;
-//     "authors": IGutenmbergAuthor[];
-//     "translators": any;
-//     "subjects": any;
-//     "bookshelves": any;
-//     "languages": string[];
-//     "copyright": boolean;
-//     "media_type": string;
-//     "formats": any;
-//     "download_count": number;
-//   }
+fetchBooksRoutes.route('/books').get(async (req, res) => {
+  const dbConnect = dbo.getDb();
+  dbConnect
+    .collection('books')
+    .find({})
+    .toArray(function (err, result) {
+      if (err) {
+        res.status(400).send('Error fetching books!');
+      } else {
+        res.status(200).json(result);
+      }
+    });
+});
 
 // This route should only run once when populating the database.
 fetchBooksRoutes.route('/fetchBooks').get(async (_req, res) => {
@@ -51,4 +44,5 @@ fetchBooksRoutes.route('/fetchBooks').get(async (_req, res) => {
     }
   });
 });
+
 module.exports = fetchBooksRoutes;
