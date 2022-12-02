@@ -30,3 +30,38 @@ npm start
 ## Disclaimer
 
 Use at your own risk; not a supported MongoDB product
+
+
+
+
+# Steps
+I spent the first 30 minutes thinking about which DB to use and looking for good boilerplates.
+I found an express boilerplate and a frontend boilerplate I had from another project.
+
+
+# Limitations
+* No auth
+* Improve settings like typescript and imports, because of time constraints I took a boilerplate and use their default configuration.
+
+
+# Notes:
+## Availability
+In the gutenberg data, there is no information about availability. So I assumed that if a user reserves a book in the app, we use that as availability, like our own personal library. To cut time, I decided that the book can only be reserved for one week.
+
+book model {
+    id: number;
+    title: string;
+    firstAuthor: string;
+    availability: {
+        available: boolean; // We don't even need this. We just need to check if return date is undefined.
+        dateAvailable: date; // NO DATE AVAILABLE, if it's available, it means that data available is now.
+        returnData: date;
+    }
+}
+
+user { 
+    username: string;
+    reservedBooks: book.id[];
+}
+
+

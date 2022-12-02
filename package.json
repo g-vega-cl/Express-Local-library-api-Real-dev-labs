@@ -18,5 +18,6 @@
     "bugs": {
         "url": "https://github.com/mongodb-developer/mongodb-express-rest-api-example/issues"
     },
-    "homepage": "https://github.com/mongodb-developer/mongodb-express-rest-api-example#readme"
+    "homepage": "https://github.com/mongodb-developer/mongodb-express-rest-api-example#readme",
+    "type": "module"
 }
