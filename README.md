@@ -26,4 +26,4 @@ npm start
 In the gutenberg data, there is no information about availability. So I assumed that if a user reserves a book in the app, we use our own availability sytem.
 
 
-![demonstration]https://github.com/g-vega-cl/Express-Local-library-api-Real-dev-labs/raw/main/demonstration.gif)
+![demonstration](https://github.com/g-vega-cl/Express-Local-library-api-Real-dev-labs/blob/main/demonstration.gif)
