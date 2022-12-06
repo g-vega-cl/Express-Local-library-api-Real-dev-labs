@@ -26,7 +26,7 @@ nodemon server
 
 2. Start the React app:
 ```
-cd app/listings/
+cd app
 npm install
 npm start
 ```

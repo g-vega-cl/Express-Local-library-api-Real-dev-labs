@@ -2,5 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 (cd server && npx lint-staged)
-(cd app/listings && npx lint-staged)
+(cd app && npx lint-staged)
 
